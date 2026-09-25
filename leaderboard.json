@@ -1,0 +1,150 @@
+{
+  "fly_scores": [
+    {
+      "score": 2721600,
+      "time_survived": 14199.3,
+      "nectar_count": 6804,
+      "dodges": 6633,
+      "date": "2026-09-16 06:49",
+      "rank": "Eternal Chrono-Deity"
+    },
+    {
+      "score": 1402400,
+      "time_survived": 7484.5,
+      "nectar_count": 3506,
+      "dodges": 3471,
+      "date": "2026-09-16 10:07",
+      "rank": "Quantum Connectome Titan"
+    },
+    {
+      "score": 1196800,
+      "time_survived": 6799.8,
+      "nectar_count": 2992,
+      "dodges": 3021,
+      "date": "2026-09-16 02:29",
+      "rank": "Quantum Connectome Titan"
+    },
+    {
+      "score": 471600,
+      "time_survived": 2621.9,
+      "nectar_count": 1179,
+      "dodges": 1196,
+      "date": "2026-09-16 00:36",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 457600,
+      "time_survived": 2489.9,
+      "nectar_count": 1144,
+      "dodges": 1132,
+      "date": "2026-09-16 07:31",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 427600,
+      "time_survived": 2204.7,
+      "nectar_count": 1069,
+      "dodges": 976,
+      "date": "2026-09-15 23:52",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 331200,
+      "time_survived": 1863.4,
+      "nectar_count": 828,
+      "dodges": 850,
+      "date": "2026-09-16 08:02",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 202000,
+      "time_survived": 1090.5,
+      "nectar_count": 505,
+      "dodges": 438,
+      "date": "2026-09-16 02:53",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 197200,
+      "time_survived": 1059.0,
+      "nectar_count": 493,
+      "dodges": 472,
+      "date": "2026-09-16 10:25",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 107200,
+      "time_survived": 546.5,
+      "nectar_count": 268,
+      "dodges": 245,
+      "date": "2026-09-15 23:07",
+      "rank": "Immortal Transcendent"
+    },
+    {
+      "score": 39200,
+      "time_survived": 209.7,
+      "nectar_count": 98,
+      "dodges": 86,
+      "date": "2026-09-16 11:16",
+      "rank": "Synaptic Titan"
+    }
+  ],
+  "human_scores": [
+    {
+      "score": 10800,
+      "time_survived": 115.5,
+      "nectar_count": 27,
+      "dodges": 50,
+      "date": "2026-09-15 21:54",
+      "rank": "Drosophila Veteran"
+    },
+    {
+      "score": 8400,
+      "time_survived": 110.3,
+      "nectar_count": 21,
+      "dodges": 59,
+      "date": "2026-09-15 21:52",
+      "rank": "Aerial Saccade Ace"
+    },
+    {
+      "score": 4800,
+      "time_survived": 94.2,
+      "nectar_count": 12,
+      "dodges": 37,
+      "date": "2026-09-15 23:10",
+      "rank": "Fruit Fly Fledgling"
+    },
+    {
+      "score": 2400,
+      "time_survived": 52.0,
+      "nectar_count": 5,
+      "dodges": 34,
+      "date": "Benchmark",
+      "rank": "Fruit Fly Fledgling"
+    },
+    {
+      "score": 2400,
+      "time_survived": 55.3,
+      "nectar_count": 6,
+      "dodges": 19,
+      "date": "2026-09-15 23:08",
+      "rank": "Fruit Fly Fledgling"
+    },
+    {
+      "score": 1200,
+      "time_survived": 32.4,
+      "nectar_count": 3,
+      "dodges": 19,
+      "date": "Benchmark",
+      "rank": "Larval Navigator"
+    },
+    {
+      "score": 400,
+      "time_survived": 31.6,
+      "nectar_count": 1,
+      "dodges": 7,
+      "date": "2026-09-15 23:07",
+      "rank": "Larval Navigator"
+    }
+  ]
+}
