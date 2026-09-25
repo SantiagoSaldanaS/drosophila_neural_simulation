@@ -117,6 +117,10 @@ class BulletHellArena:
         self.drag_coeff = 1.6
         self.rotational_damping = 5.0
 
+        # Wing flapping & aerodynamic wake state
+        self.wing_phase = 0.0
+        self.wake_particles: List[Dict] = []
+
         # Run statistics for Leaderboards
         self.nectar_collected = 0
         self.projectiles_dodged = 0
@@ -597,6 +601,28 @@ class BulletHellArena:
         if bounced:
             self.fly_heading = (self.fly_heading + math.pi) % (2 * math.pi) - math.pi
 
+        # Update wing flapping oscillation
+        fly_speed = math.hypot(self.fly_vx, self.fly_vy)
+        flap_rate = 26.0 * (1.0 + (fly_speed / 380.0) * 0.8)
+        self.wing_phase += flap_rate * dt
+
+        # Spawn aerodynamic wake particles behind fly
+        if fly_speed > 40.0 and random.random() < 0.4:
+            self.wake_particles.append({
+                "x": self.fly_x - math.cos(self.fly_heading) * 12.0 + random.uniform(-2.5, 2.5),
+                "y": self.fly_y - math.sin(self.fly_heading) * 12.0 + random.uniform(-2.5, 2.5),
+                "vx": -math.cos(self.fly_heading) * 25.0 + random.uniform(-8.0, 8.0),
+                "vy": -math.sin(self.fly_heading) * 25.0 + random.uniform(-8.0, 8.0),
+                "life": 0.35,
+                "max_life": 0.35
+            })
+
+        for p in self.wake_particles:
+            p["x"] += p["vx"] * dt
+            p["y"] += p["vy"] * dt
+            p["life"] -= dt
+        self.wake_particles = [p for p in self.wake_particles if p["life"] > 0]
+
         # Update background visual grating
         self.grating_offset = (self.grating_offset + self.grating_speed * dt) % 64.0
 
@@ -789,6 +815,12 @@ class BulletHellArena:
         cos_h = math.cos(h)
         sin_h = math.sin(h)
 
+        # Draw aerodynamic wake particles
+        for p in self.wake_particles:
+            alpha_frac = max(0.0, p["life"] / p["max_life"])
+            radius = max(1, int(3 * alpha_frac))
+            pygame.draw.circle(self.surface, (60, 240, 210), (int(p["x"]), int(p["y"])), radius)
+
         # Flight direction indicator line
         nose_x = px + cos_h * 24
         nose_y = py + sin_h * 24
@@ -814,11 +846,12 @@ class BulletHellArena:
         pygame.draw.circle(self.surface, (245, 35, 35), (int(eye_l_x), int(eye_l_y)), 4)
         pygame.draw.circle(self.surface, (245, 35, 35), (int(eye_r_x), int(eye_r_y)), 4)
 
-        # Translucent wings
+        # Translucent flapping stick wings
+        flap_offset = math.sin(self.wing_phase) * 5.0
         wing_span = 20.0
-        w_l_x = px - sin_h * wing_span - cos_h * 4
-        w_l_y = py + cos_h * wing_span - sin_h * 4
-        w_r_x = px + sin_h * wing_span - cos_h * 4
-        w_r_y = py - cos_h * wing_span - sin_h * 4
+        w_l_x = px - sin_h * wing_span - cos_h * (4.0 + flap_offset)
+        w_l_y = py + cos_h * wing_span - sin_h * (4.0 + flap_offset)
+        w_r_x = px + sin_h * wing_span - cos_h * (4.0 + flap_offset)
+        w_r_y = py - cos_h * wing_span - sin_h * (4.0 + flap_offset)
         pygame.draw.line(self.surface, (215, 235, 255), (px, py), (int(w_l_x), int(w_l_y)), 2)
         pygame.draw.line(self.surface, (215, 235, 255), (px, py), (int(w_r_x), int(w_r_y)), 2)
