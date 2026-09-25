@@ -25,3 +25,9 @@ desktop.ini
 # IDEs and editors
 .vscode/
 .idea/
+
+# Local research notes and roadmaps (not tracked)
+FUTURE_VISION.md
+docs/
+*.draft.md
+
